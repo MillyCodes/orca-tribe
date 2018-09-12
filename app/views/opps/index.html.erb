@@ -2,6 +2,13 @@
 <%#  Using @opps here %>
 <%#  <p> <%= index +1 %>
 
+<%=# Adding a search form. --V.%>
+<%=form_tag apps_path, :method => :get do%>
+  <p>
+    <%= text_fiel_tag :search, params[:search] %>
+    <%= sumbit_tag "Search", :name => nil %>
+  </p>
+<% end %>
 
 <% @opps.each_with_index do |item, index| %>
 

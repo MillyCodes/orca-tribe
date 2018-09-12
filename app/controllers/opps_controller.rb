@@ -1,39 +1,45 @@
 class OppsController < ApplicationController
+  # Let there be comments!
+   
     # before_action :authenticate_user!
     # list method - shows all opps
+
     def index
-        @opps = Opp.all
+      @search = Opp.search do
+        fulltext params[:search]
+      end
+        @opps = @search.results
     end
     # show method - specific page for opportunity
     def show
         @opp = Opp.find(params[:id])
-    end 
-    
+    end
+
     def new
         @opp = Opp.new
     end
-    
+
     def create
         @opp = Opp.create(opp_params)
-        if @opp.save 
+        if @opp.save
             redirect_to opps_path
         end
     end
-    
+
     def edit
         @opp = Opp.find(params[:id])
     end
-    
+
     def update
         @opp = Opp.find(params[:id])
-         
+
         if @opp.update_attributes(opp_params)
            redirect_to :action => 'show', :id => @opp
         else
            render :action => 'edit'
         end
-    end   
-    
+    end
+
     def destroy
         @opp = Opp.find(params[:id])
         @opp.destroy
