@@ -79,3 +79,4 @@ gem 'acts_as_votable'
 
 # -Shahid
 gem 'httparty'
+gem 'octicons_helper'
