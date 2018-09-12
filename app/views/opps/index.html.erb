@@ -3,11 +3,10 @@
 <%#  <p> <%= index +1 %>
 
 <%=# Adding a search form. --V.%>
-<%=form_tag apps_path, :method => :get do%>
-  <p>
-    <%= text_fiel_tag :search, params[:search] %>
+<%=form_tag opps_path, :method => :get do %>
+
+    <%= text_field_tag :search, params[:search] %>
     <%= sumbit_tag "Search", :name => nil %>
-  </p>
 <% end %>
 
 <% @opps.each_with_index do |item, index| %>
@@ -27,7 +26,7 @@
     <div class="card-block px-3">
       <h4 class="card-title"><%= link_to item.title, { :action => 'show', :id => item.id} -%></h4>
       <p class="card-text">Description: <%= item.summary %></p>
-      <p class="card-text">Dates : <%= item.start_date.strftime("%B %d, %Y") %> - <%= item.end_date.strftime("%B %d, %Y") %></p>
+      <p class="card-text">Dates: <%= item.start_date.strftime("%B %d, %Y") %> - <%= item.end_date.strftime("%B %d, %Y") %></p>
       <p class="card-text">Organization : <%= link_to Org.find(item.org_id).name, {controller: "orgs", :action => 'show', :id => item.org_id} -%></p>
     </div>
   </div>

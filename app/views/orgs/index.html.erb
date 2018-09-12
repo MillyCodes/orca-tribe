@@ -1,9 +1,28 @@
 <%#  Listing of all Opportunities here %>
 <%#  Using @orgs here %>
 
+<%=# Adding a search form. --V.%>
+<%=form_tag orgs_path, :method => :get do %>
+  <p><%= text_field_tag :search, params[:search] %>
+    <%= sumbit_tag "Search", :name => nil %>
+  </p>
+<% end %>
 
 <% @orgs.each do |item| %>
 
-<p> <%= item.name %> </p>
+<p><a href="/orgs/<%=item.id%>"> <%= item.name %> </a> :
+
+  <%= link_to like_org_path(item), method: :put do %>
+    Upvotes
+    <%= item.get_upvotes.size %>
+  <% end %>
+
+  <%= link_to dislike_org_path(item), method: :put do %>
+    Downvote
+    <%= item.get_downvotes.size %>
+  <% end %>
+</p>
+
+
 
 <% end %>
