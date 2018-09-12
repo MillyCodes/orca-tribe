@@ -3,6 +3,7 @@ class Opp < ApplicationRecord
     #changed from orgs to org
     has_many :user_opps
     has_many :users, through: :user_opps #volunteers
-end
 
+
+    end
 #milly

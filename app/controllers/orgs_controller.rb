@@ -3,8 +3,12 @@ class OrgsController < ApplicationController
 
   # list method shows all orgs
   def index
-    @orgs = Org.all
+    # @orgs = Org.all
 
+  @search = Sunspot.search(Org) do
+      fulltext params[:search]
+    end
+      @orgs = @search.results
   end
 
   # show method - specific org profile page
@@ -12,7 +16,6 @@ class OrgsController < ApplicationController
     @org = Org.find(params[:id])
     @current_person = current_user
     @org_opps = @org.opps
- 
   end
 
   def new

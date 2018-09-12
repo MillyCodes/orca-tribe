@@ -1,37 +1,49 @@
 class OppsController < ApplicationController
-  # before_action :authenticate_user!
-  # list method - shows all opps
-  def index
-    @opps = Opp.all
-  end
+  # Let there be comments!
 
-  # show method - specific page for opportunity
-  def show
-    @opp = Opp.find(params[:id])
-  end
+    # before_action :authenticate_user!
+    # list method - shows all opps
 
-  def new
-    @opp = Opp.new
+    def index
+      @opps = Opp.all
   end
-
-  def create
-    @opp = Opp.create(opp_params)
-    if @opp.save
-      redirect_to opps_path
+    # show method - specific page for opportunity
+    def show
+        @opp = Opp.find(params[:id])
     end
-  end
 
-  def edit
-    @opp = Opp.find(params[:id])
-  end
+    def new
+        @opp = Opp.new
+    end
 
-  def update
-    @opp = Opp.find(params[:id])
+    def create
+        @opp = Opp.create(opp_params)
+        if @opp.save
+            redirect_to opps_path
+        end
+    end
 
-    if @opp.update_attributes(opp_params)
-      redirect_to :action => 'show', :id => @opp
-    else
-      render :action => 'edit'
+    def edit
+        @opp = Opp.find(params[:id])
+    end
+
+    def update
+        @opp = Opp.find(params[:id])
+
+        if @opp.update_attributes(opp_params)
+           redirect_to :action => 'show', :id => @opp
+        else
+           render :action => 'edit'
+        end
+    end
+
+    def destroy
+        @opp = Opp.find(params[:id])
+        @opp.destroy
+
+        respond_to do |format|
+        format.html {redirect_to opp_path} #delete action in individual opp page.
+        format.js #delete via an ajax call if we decide to do implement it
     end
   end
 
