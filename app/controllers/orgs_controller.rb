@@ -4,7 +4,8 @@ class OrgsController < ApplicationController
   # list method shows all orgs
   def index
     # @orgs = Org.all
-    @search = Org.search do
+
+  @search = Sunspot.search(Org) do
       fulltext params[:search]
     end
       @orgs = @search.results
