@@ -15,7 +15,7 @@
     <header class="header">
       <!-- Main Navbar-->
       <nav class="navbar navbar-expand-lg">
-      
+
         <div class="container">
           <!-- Navbar Brand -->
           <div class="navbar-header d-flex align-items-center justify-content-between">
@@ -33,7 +33,7 @@
               <% if current_user %>
 
                   <!-- only show this code when signed in -->
-                  <li class="nav-item"><a href="/profile" class="nav-link">Profile</a></li>                 
+                  <li class="nav-item"><a href="/profile" class="nav-link">Profile</a></li>
 
                   <li class="nav-item"> <%= link_to 'Sign out' , destroy_user_session_path, method: :delete , class: 'nav-link'%>
                   </li>
@@ -45,7 +45,7 @@
                   </li>
                   <li class="nav-item"><a href="/users/sign_up" class="nav-link">Sign Up</a>
                   </li>
-                
+
                 <% end %>
               <li class="nav-item"><a href="/about" class="nav-link">About</a></li>
               <li class="nav-item"><a href="/opps" class="nav-link ">Opportunities</a></li>
@@ -58,7 +58,7 @@
 
     <!-- Hero Section-->
         <div class="container">
-        
+
         <section style="background-image: url(<%= asset_path('hero1') %>); background-position: center" class="hero">
           <div class="container">
             <div class="row">
@@ -69,10 +69,10 @@
           </div>
         </section>
 
-      
+
         <div class="row">
 
-        <main class="posts-listing col-lg-8"> 
+        <main class="posts-listing col-lg-8">
           <div class="container">
             <div class="row">
               <div class="post-single">
@@ -89,16 +89,16 @@
         </main>
 
         <aside class="col-lg-4">
-          
+
           <!-- Sidebar[Search Bar Sidebar]-->
           <div class="sidebar search">
             <header>
-              <h3 class="h6">Search??</h3>
+              <h3 class="h6">Search for..Godzilla</h3>
             </header>
             <!-- update what search action does -->
             <form action="#" class="search-form">
               <div class="form-group">
-                <input type="search" placeholder="What are you looking for?">
+                <input type="search" placeholder="Love, Peace and Harmony...">
                 <button type="submit" class="submit"><i class="fas fa-search"></i></button>
               </div>
             </form>
@@ -109,18 +109,18 @@
             <header>
               <h3 class="h6">Categories?</h3>
             </header>
-            <div class="item d-flex justify-content-between"><a href="#">Cat 1?</a><span>12</span></div>
-            <div class="item d-flex justify-content-between"><a href="#">Cat 2?</a><span>25</span></div>
-            <div class="item d-flex justify-content-between"><a href="#">Cat 3?</a><span>8</span></div>
-            <div class="item d-flex justify-content-between"><a href="#">Cat 4?</a><span>17</span></div>
-            <div class="item d-flex justify-content-between"><a href="#">Cat 5?</a><span>25</span></div>
-          </div>   
+            <div class="item d-flex justify-content-between"><a href="#">Do You know..</a><span>12</span></div>
+            <div class="item d-flex justify-content-between"><a href="#">Maybe</a><span>25</span></div>
+            <div class="item d-flex justify-content-between"><a href="#">Perhaps</a><span>8</span></div>
+            <div class="item d-flex justify-content-between"><a href="#">Unless</a><span>17</span></div>
+            <div class="item d-flex justify-content-between"><a href="#">Albeit</a><span>25</span></div>
+          </div>
         </aside>
       </div>
     </div>
 
 
-    
+
     <!-- Page Footer-->
     <footer class="main-footer">
 
@@ -162,7 +162,7 @@
                 <li class="list-inline-item"><a href="#"><i class="fab fa-twitter"></i></a></li>
                 <li class="list-inline-item"><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
                 <li class="list-inline-item"><a href="#"><i class="fab fa-instagram"></i></a></li>
-                
+
               </ul>
             </div>
           </div>
@@ -193,13 +193,13 @@
                   <div class="title"><strong><%= org.name %> </strong></div>
                 </div></a>
               <% end %>
-                
+
                 </div>
           </div>
         </div>
       </div>
 
-      
+
       <div class="copyrights">
         <div class="container">
           <div class="row">

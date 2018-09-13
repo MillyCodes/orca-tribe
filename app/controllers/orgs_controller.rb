@@ -3,16 +3,17 @@ class OrgsController < ApplicationController
 
   # list method shows all orgs
   def index
-    @orgs = Org.all
-
-  end
+    # @orgs = Org.all
+      # Let there be Search! --V
+      @orgs = Org.search(params[:search])
+end
+end
 
   # show method - specific org profile page
   def show
     @org = Org.find(params[:id])
     @current_person = current_user
     @org_opps = @org.opps
- 
   end
 
   def new
@@ -50,16 +51,16 @@ class OrgsController < ApplicationController
     end
   end
 
-  def like
+  def upvote
     @org = Org.find(params[:id])
-    @org.liked_by current_user
+    @org.upvote_by current_user
     redirect_back(fallback_location: root_path)
 
   end
 
-  def unlike
+  def downvote
     @org = Org.find(params[:id])
-    @org.unliked_by current_user
+    @org.downvote_by current_user
     redirect_back(fallback_location: root_path)
 
   end
@@ -68,9 +69,6 @@ class OrgsController < ApplicationController
 
   def org_params
     params.require(:org).permit(:name, :summary, :address, :website,
-                                :thumbnail, :phone)
+                                :thumbnail, :phone, :search)
     #the :created_at, :updated_at and :api_org_id are the other params
   end
-
-
-end
