@@ -1,9 +1,39 @@
+<<<<<<< HEAD
 
 
 
 <%= form_tag( orgs_path, :method => :get, remote:true) do%>
     Search <%= text_field_tag :search, params[:search], placeholder: "Enter search here" %>
     <%= submit_tag "Search" %>
+=======
+<%#  Listing of all Opportunities here %>
+<%#  Using @orgs here %>
+
+<div class="container">
+<h3>Organizations</h3>
+<% @orgs.each_with_index do |org, index| %>
+<div class="row ">
+    <div class="col-lg-12 card-header"><%= link_to org.name, {:action => 'show', :id => org.id} %> - <% @org = org %>
+      <%= render "orgs/likes" %>
+    </div>
+
+
+  <div class="col-lg-3 m-auto">
+    <% if org.thumbnail? %>
+    <%= image_tag org.thumbnail, class: 'w-100' %>
+    <% else %>
+    <%= image_tag "https://placeholdit.imgix.net/~text?txtsize=38&txt=400%C3%97400&w=400&h=400", class: 'w-100' %>
+    <% end %>
+  </div>
+
+  <div class="col-lg-9 px-3">
+    <div class="card-block px-3">
+      <p class="card-text"><%= org.summary %></p>
+    </div>
+  </div>
+</div>
+<hr>
+>>>>>>> master
 <% end %>
 
 
