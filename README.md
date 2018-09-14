@@ -17,8 +17,11 @@ Things you may want to cover:
 * System dependencies
 
 * Configuration
+When your life is always a part of your surroundings - in other words, when you are called back to yourself, in the present moment - then there is no problem.
 
 * Database creation
+
+When you start to wonder about in some delusion which is something apart from you yourself, then your surroundings are also a misty, foggy delusion. Once you are in the midst of delusion, there is no end to delusion. You will be involved in deluded ideas one after another. Most of people live in delusion, involved in their problem, trying to solve their problem. But just to live is actually to live in problems. And to solve the problem is to be a part of it, to be be one with it.
 
 * Database initialization
 

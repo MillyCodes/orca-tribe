@@ -9,7 +9,7 @@
 
 
 
-<% @orgs.each do |item| %>
+<!-- <% @orgs.each do |item| %>
   <p>
     <a href="/orgs/<%= item.id %>">
       <%= item.name %>
@@ -19,7 +19,7 @@
   <%= item.get_upvotes.size %>
   <%= link_to unlike_org_path(item), method: :put %> Downvote
   <%= item.get_downvotes.size %>
-<% end %>
+<% end %> -->
 
 
 <div id="blogpost-table">
@@ -46,5 +46,7 @@
   </table>
 </div>
 <div id="search-results">
-
+  <% if @orgs.blank? %>
+    <h4>There are no recipes containing the term <%= params[:search] %>.</h4>
+  <% end %>
 </div>

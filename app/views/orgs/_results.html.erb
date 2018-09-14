@@ -2,7 +2,7 @@
   <thead>
     <tr>
       <th>Title</th>
-      <th>Body</th>
+      <th>BodyBody</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -12,6 +12,7 @@
       <tr>
         <td><%= org.name %></td>
         <td><%= org.summary %></td>
+        <td><%= org.borough %></td>
         <td><%= link_to 'Show', org %></td>
         <td><%= link_to 'Edit', edit_org_path(org) %></td>
         <td><%= link_to 'Destroy', org, method: :delete, data: { confirm: 'Are you sure?' } %></td>
