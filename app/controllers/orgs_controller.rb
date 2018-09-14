@@ -2,17 +2,25 @@ class OrgsController < ApplicationController
   # before_action :authenticate_user!
 
   # list method shows all orgs
-  def index
-    @orgs = Org.all
-
-  end
+def index
+    # Let there be Search! --V
+    if params[:search]
+      puts "HELLO WORLD"
+      @search_results_posts = Org.where(borough: params[:search])
+      respond_to do |format|
+        format.js {}
+        format.html {render partial: 'results'}
+      end
+    else
+      @orgs = Org.all
+    end
+end
 
   # show method - specific org profile page
   def show
     @org = Org.find(params[:id])
     @current_person = current_user
     @org_opps = @org.opps
- 
   end
 
   def new
@@ -50,16 +58,16 @@ class OrgsController < ApplicationController
     end
   end
 
-  def like
+  def upvote
     @org = Org.find(params[:id])
-    @org.liked_by current_user
+    @org.upvote_by current_user
     redirect_back(fallback_location: root_path)
 
   end
 
-  def unlike
+  def downvote
     @org = Org.find(params[:id])
-    @org.unliked_by current_user
+    @org.downvote_by current_user
     redirect_back(fallback_location: root_path)
 
   end
@@ -71,6 +79,4 @@ class OrgsController < ApplicationController
                                 :thumbnail, :phone)
     #the :created_at, :updated_at and :api_org_id are the other params
   end
-
-
 end

@@ -1,0 +1,13 @@
+<table>
+  <tbody>
+    <% @search_results_posts.each do |org| %>
+      <tr>
+        <td><%= org.name %></td>
+        <td><%= org.summary %></td>
+        <td><%= link_to 'Show', org %></td>
+        <td><%= link_to 'Edit', edit_org_path(org) %></td>
+        <td><%= link_to 'Destroy', org, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
